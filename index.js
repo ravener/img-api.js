@@ -82,7 +82,7 @@ class Client {
    * @returns {Promise<Object>}
    */
   stats(stats = true) {
-    return this._get("/stats", { noStats: !!stats })
+    return this._get("/stats", { noStats: !stats })
       .then(JSON.parse);
   }
 

@@ -43,5 +43,9 @@ The function arguments take arguments in the same order the Endpoints list shows
 #### v1.0.0 (19/5/2020)
 - Initial release.
 
+### v1.0.1
+- Fix stats()'s boolean logic
+- Add TypeScript typings for `ping`/`stats`
+
 ## License
 Released under the [MIT License](LICENSE)

@@ -6,6 +6,9 @@ declare module "img-api" {
   export class Client {
     public constructor(options?: { port?: number, host?: string, password?: string });
 
+    public ping(): Promise<any>;
+    public stats(): Promise<any>;
+
     public religion(avatar: string): Promise<Buffer>;
     public beautiful(avatar: string): Promise<Buffer>;
     public fear(avatar: string): Promise<Buffer>;
