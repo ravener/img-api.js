@@ -47,5 +47,8 @@ The function arguments take arguments in the same order the Endpoints list shows
 - Fix stats()'s boolean logic
 - Add TypeScript typings for `ping`/`stats`
 
+### v1.0.2
+- Fix `tweet()`
+
 ## License
 Released under the [MIT License](LICENSE)

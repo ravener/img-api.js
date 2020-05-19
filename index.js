@@ -213,7 +213,7 @@ class Client {
    * @returns {Promise<Buffer>}
    */
   tweet(text) {
-    return this._get("/tweet", { avatar })
+    return this._get("/tweet", { text })
   }
 
   /**
