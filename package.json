@@ -1,0 +1,34 @@
+{
+  "name": "img-api",
+  "version": "1.0.0",
+  "description": "API wrapper for the image manipulation API",
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/node": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pollen5/img-api.js.git"
+  },
+  "keywords": [
+    "img",
+    "api",
+    "img-api",
+    "image",
+    "manipulation",
+    "discord",
+    "discordapp",
+    "bot",
+    "discord.js"
+  ],
+  "author": "PoLLeN <pollen@itsladybug.ml> (https://itsladybug.ml/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pollen5/img-api.js/issues"
+  },
+  "homepage": "https://github.com/pollen5/img-api.js#readme"
+}
