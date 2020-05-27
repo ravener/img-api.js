@@ -257,6 +257,16 @@ class Client {
   achievement(avatar, text) {
     return this._get("/achievement", { avatar, text });
   }
+
+  /**
+   * Returns dominant color of an image.
+   * @param {String} avatar
+   * @returns {Object}
+   */
+  dominantColor(avatar) {
+    return this._get("/dominantColor", { avatar })
+      .then(JSON.parse);
+  }
 }
 
 module.exports = { Client, version };

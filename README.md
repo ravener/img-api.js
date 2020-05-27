@@ -40,15 +40,20 @@ The function arguments take arguments in the same order the Endpoints list shows
 
 ## Changelog
 
-#### v1.0.0 (19/5/2020)
-- Initial release.
+#### v1.0.3 (27/5/2020)
+- Add `Client#dominantColor(avatar)`
+- Improved TypeScript typings for `ping`/`stats`'s response.
+- Start using ESLint.
 
-### v1.0.1
-- Fix stats()'s boolean logic
+#### v1.0.2
+- Fix `tweet()`
+
+#### v1.0.1
+- Fix `stats()`'s boolean logic
 - Add TypeScript typings for `ping`/`stats`
 
-### v1.0.2
-- Fix `tweet()`
+#### v1.0.0 (19/5/2020)
+- Initial release.
 
 ## License
 Released under the [MIT License](LICENSE)

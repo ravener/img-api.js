@@ -3,11 +3,27 @@ declare module "img-api" {
   const version: string;
   export { version };
 
+  export interface DominantColor {
+    hex: string;
+    rgb: { r: number, g: number, b: number };
+  }
+
+  export interface Pong {
+    message: string;
+  }
+
+  export interface Stats {
+    goroutines: number;
+    version: string;
+    uptime: number;
+    stats?: any;
+  }
+
   export class Client {
     public constructor(options?: { port?: number, host?: string, password?: string });
 
-    public ping(): Promise<any>;
-    public stats(): Promise<any>;
+    public ping(): Promise<Pong>;
+    public stats(): Promise<Stats>;
 
     public religion(avatar: string): Promise<Buffer>;
     public beautiful(avatar: string): Promise<Buffer>;
@@ -30,5 +46,6 @@ declare module "img-api" {
     public mask(avatar: string): Promise<Buffer>;
     public father(avatar: string, text: string): Promise<Buffer>;
     public achievement(avatar: string, text: string): Promise<Buffer>;
+    public dominantColor(avatar: string): Promise<Buffer>;
   }
 }
