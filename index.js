@@ -267,6 +267,14 @@ class Client {
     return this._get("/dominantColor", { avatar })
       .then(JSON.parse);
   }
+
+  /**
+   * @param {String} avatar
+   * @returns {Promise<Buffer>}
+   */
+  kaguya(avatar) {
+    return this._get("/kaguya", { avatar });
+  }
 }
 
 module.exports = { Client, version };
