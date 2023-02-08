@@ -5,14 +5,15 @@
   "main": "index.js",
   "typings": "index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "eslint .",
+    "lint": "eslint . --fix"
   },
   "devDependencies": {
-    "@types/node": "*"
+    "@types/node": "^18.11.19"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pollen5/img-api.js.git"
+    "url": "git+https://github.com/ravener/img-api.js.git"
   },
   "keywords": [
     "img",
@@ -25,10 +26,10 @@
     "bot",
     "discord.js"
   ],
-  "author": "PoLLeN <pollen@itsladybug.ml> (https://itsladybug.ml/)",
+  "author": "Ravener <ravener.anime@gmail.com> (https://ravener.vercel.app/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pollen5/img-api.js/issues"
+    "url": "https://github.com/ravener/img-api.js/issues"
   },
-  "homepage": "https://github.com/pollen5/img-api.js#readme"
+  "homepage": "https://github.com/ravener/img-api.js#readme"
 }

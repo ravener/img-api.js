@@ -1,6 +1,6 @@
 const { version } = require("./package.json");
-const http = require("http");
-const querystring = require("querystring");
+const { get } = require("http");
+const { stringify } = require("querystring");
 
 /**
  * Client is the base class for interacting with the API.
@@ -40,9 +40,12 @@ class Client {
   _get(endpoint, query = {}) {
     return new Promise((resolve, reject) => {
       const options = {};
-      if(this.password) options.headers = { Authorization: this.password };
 
-      const req = http.get(`http://${this.host}:${this.port}${endpoint}?${querystring.stringify(query)}`, options);
+      if (this.password) {
+        options.headers = { Authorization: this.password };
+      }
+
+      const req = get(`http://${this.host}:${this.port}${endpoint}?${stringify(query)}`, options);
 
       req
         .once("response", (res) => {
@@ -52,16 +55,15 @@ class Client {
             .once("error", (err) => reject(err))
             .once("end", () => {
               // If there is a JSON response then show the error message.
-              if(res.statusCode !== 200 && res.getHeader("Content-Type").includes("application/json"))
+              if (res.statusCode !== 200 && res.getHeader("Content-Type").includes("application/json"))
                 return reject(new Error(JSON.parse(Buffer.concat(body)).message));
-              else if(res.statusCode !== 200) // Otherwise just reject with the status code.
+              else if (res.statusCode !== 200) // Otherwise just reject with the status code.
                 return reject(new Error(`${res.statusCode}: ${res.statusMessage}`));
 
-              return resolve(Buffer.concat(body))
-            }); 
+              return resolve(Buffer.concat(body));
+            });
         })
-        .once("error", (err) => reject(err))
-        .once("abort", () => reject(new Error("Request Aborted.")))
+        .once("error", (err) => reject(err));
 
       return req.end();
     });
@@ -71,9 +73,9 @@ class Client {
    * Ping the server.
    * @returns {Promise<Object>}
    */
-  ping() {
-    return this._get("/ping")
-      .then(JSON.parse);
+  async ping() {
+    const text = await this._get("/ping");
+    return JSON.parse(text);
   }
 
   /**
@@ -81,9 +83,9 @@ class Client {
    * @param {Boolean} [stats=true] - Wether to request memory statistics.
    * @returns {Promise<Object>}
    */
-  stats(stats = true) {
-    return this._get("/stats", { noStats: !stats })
-      .then(JSON.parse);
+  async stats(stats = true) {
+    const text = await this._get("/stats", { noStats: !stats });
+    return JSON.parse(text);
   }
 
   /**
@@ -213,7 +215,7 @@ class Client {
    * @returns {Promise<Buffer>}
    */
   tweet(text) {
-    return this._get("/tweet", { text })
+    return this._get("/tweet", { text });
   }
 
   /**
@@ -261,11 +263,11 @@ class Client {
   /**
    * Returns dominant color of an image.
    * @param {String} avatar
-   * @returns {Object}
+   * @returns {Promise<Object>}
    */
-  dominantColor(avatar) {
-    return this._get("/dominantColor", { avatar })
-      .then(JSON.parse);
+  async dominantColor(avatar) {
+    const text = await this._get("/dominantColor", { avatar });
+    return JSON.parse(text);
   }
 
   /**

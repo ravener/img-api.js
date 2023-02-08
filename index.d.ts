@@ -47,5 +47,6 @@ declare module "img-api" {
     public father(avatar: string, text: string): Promise<Buffer>;
     public achievement(avatar: string, text: string): Promise<Buffer>;
     public dominantColor(avatar: string): Promise<Buffer>;
+    public kaguya(avatar: string): Promise<Buffer>;
   }
 }

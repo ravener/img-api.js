@@ -1,5 +1,5 @@
 # IMG API JavaScript
-I made an [image manipulation API](https://github.com/pollen5/img-api) in Golang, primarily targetting Discord Bots.
+I made an [image manipulation API](https://github.com/ravener/img-api) in Golang, primarily targetting Discord Bots.
 
 This is an API wrapper for the api in JavaScript
 
@@ -39,6 +39,10 @@ The function arguments take arguments in the same order the Endpoints list shows
 > **Note:** The API only accepts `jpg` and `png` when using Discord.js make sure to always ask for `png` like so `user.displayAvatarURL({ format: "png" })` the default is `webp` which is not supported.
 
 ## Changelog
+
+#### v1.0.4 (8/2/2023)
+- Maintenance update: update links and refactor the code slightly
+- Added missing typescript typings for `kaguya` endpoint
 
 #### v1.0.3 (27/5/2020)
 - Add `Client#dominantColor(avatar)`
